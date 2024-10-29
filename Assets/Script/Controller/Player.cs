@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public ItemData itemData;
     public Action addItem;
 
+    public GameObject TalkUI;
     public Transform dropPosition;
     public Equipment equip;
 

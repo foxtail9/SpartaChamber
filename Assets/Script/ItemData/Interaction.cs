@@ -26,9 +26,14 @@ public class Interaction : MonoBehaviour
         camera = Camera.main;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if (DialogueManager.Instance.npcTalking)
+        {
+            promptText.gameObject.SetActive(false);
+            return;
+        }
+
         if (Time.time - lastCheckTime > checkRate)
         {
             lastCheckTime = Time.time;
@@ -56,8 +61,11 @@ public class Interaction : MonoBehaviour
 
     private void SetPromptText()
     {
-        promptText.gameObject.SetActive(true);
-        promptText.text = curInteractable.GetInteractPrompt();
+        if (curInteractable != null)
+        {
+            promptText.gameObject.SetActive(true);
+            promptText.text = curInteractable.GetInteractPrompt();
+        }
     }
 
     public void OnInteractInput(InputAction.CallbackContext context)
