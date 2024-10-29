@@ -4,13 +4,14 @@ public enum ItemType
 {
     Resource,
     Equipable,
-    Consumable,
+    Consumable
 }
 
 public enum ConsumableType
 {
     Hunger,
-    Health
+    Health,
+    Stemina
 }
 
 [System.Serializable]

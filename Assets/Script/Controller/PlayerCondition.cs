@@ -1,26 +1,29 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public interface IDamagable
+public interface IDamagalbe
 {
-    void TakePhysicalDamage(int damageAmount);
+    void TakePhysicalDamage(int damage);
 }
-
-public class PlayerCondition : MonoBehaviour, IDamagable
+public class PlayerCondition : MonoBehaviour, IDamagalbe
 {
-    public UICondition uiCondition;
+    public UIConditon uiCondition;
 
     Condition health { get { return uiCondition.health; } }
     Condition hunger { get { return uiCondition.hunger; } }
-    Condition stamina { get { return uiCondition.stamina; } }
+    Condition Stamina { get { return uiCondition.Stamina; } }
 
     public float noHungerHealthDecay;
+
     public event Action onTakeDamage;
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
         hunger.Subtract(hunger.passiveValue * Time.deltaTime);
-        stamina.Add(stamina.passiveValue * Time.deltaTime);
+        //Stamina.Add(Stamina.passiveValue * Time.deltaTime);
 
         if (hunger.curValue <= 0f)
         {
@@ -33,24 +36,24 @@ public class PlayerCondition : MonoBehaviour, IDamagable
         }
     }
 
-    public void Heal(float amount)
+    public void Heal(float amout)
     {
-        health.Add(amount);
+        health.Add(amout);
     }
 
-    public void Eat(float amount)
+    public void Eat(float amout)
     {
-        hunger.Add(amount);
+        hunger.Add(amout);
     }
 
     public void Die()
     {
-        Debug.Log("플레이어가 죽었다.");
+        Debug.Log("죽었다");
     }
 
-    public void TakePhysicalDamage(int damageAmount)
+    public void TakePhysicalDamage(int damage)
     {
-        health.Subtract(damageAmount);
+        health.Subtract(damage);
         onTakeDamage?.Invoke();
     }
 }
