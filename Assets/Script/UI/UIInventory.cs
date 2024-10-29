@@ -195,6 +195,8 @@ public class UIInventory : MonoBehaviour
                         condition.Heal(selectedItem.item.consumables[i].value); break;
                     case ConsumableType.Hunger:
                         condition.Eat(selectedItem.item.consumables[i].value); break;
+                    case ConsumableType.Stemina:
+                        condition.SteUP(selectedItem.item.consumables[i].value); break;
                 }
             }
             RemoveSelctedItem();

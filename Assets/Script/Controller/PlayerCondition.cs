@@ -23,7 +23,7 @@ public class PlayerCondition : MonoBehaviour, IDamagalbe
     void Update()
     {
         hunger.Subtract(hunger.passiveValue * Time.deltaTime);
-        //Stamina.Add(Stamina.passiveValue * Time.deltaTime);
+        Stamina.Add(Stamina.passiveValue * Time.deltaTime);
 
         if (hunger.curValue <= 0f)
         {
@@ -44,6 +44,19 @@ public class PlayerCondition : MonoBehaviour, IDamagalbe
     public void Eat(float amout)
     {
         hunger.Add(amout);
+    }
+    public void SteUP(float amout)
+    {
+        Stamina.Add(amout);
+    }
+    public bool UseStamina(float amount)
+    {
+        if (Stamina.curValue - amount < 0)
+        {
+            return false;
+        }
+        Stamina.Subtract(amount);
+        return true;
     }
 
     public void Die()
