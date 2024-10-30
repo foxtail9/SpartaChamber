@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce2bf005331831d41a9191b74694e79d, type: 3}
   m_Name: NPC_Raptor
   m_EditorClassIdentifier: 
-  dialogueLines: []
+  dialogueLines:
+  - 
+  - "\uC778\uAC04\uC744 \uC7A1\uC544 \uBA39\uACA0\uB2E4!!!"
+  - "\uC65C \uC7A1\uC544 \uBA39\uB0D0\uACE0? \n\uADF8\uC57C \uB098\uB97C \uAD34\uB86D\uD788\uB2C8\uAE4C
+    \uADF8\uB807\uC9C0!"
+  - "\uCC38\uC744\uC218 \uC5C6\uB2E4!!\n\uD06C\uC544\uC544\uC544!"
